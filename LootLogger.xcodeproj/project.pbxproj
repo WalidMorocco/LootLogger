@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE414E1A27DBF51B00C4ABF4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE414E1927DBF51B00C4ABF4 /* DetailViewController.swift */; };
 		CE67DB6627D9888D00C2068A /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67DB6527D9888D00C2068A /* ItemCell.swift */; };
 		CE8D051827D04B3B00E25E37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D051727D04B3B00E25E37 /* AppDelegate.swift */; };
 		CE8D051A27D04B3B00E25E37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D051927D04B3B00E25E37 /* SceneDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE414E1927DBF51B00C4ABF4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CE67DB6527D9888D00C2068A /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		CE8D051427D04B3B00E25E37 /* LootLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LootLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8D051727D04B3B00E25E37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				CE8D054927D04CCD00E25E37 /* Item.swift */,
 				CE8D054B27D04F9E00E25E37 /* ItemStore.swift */,
 				CE67DB6527D9888D00C2068A /* ItemCell.swift */,
+				CE414E1927DBF51B00C4ABF4 /* DetailViewController.swift */,
 			);
 			path = LootLogger;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				CE8D051827D04B3B00E25E37 /* AppDelegate.swift in Sources */,
 				CE8D054C27D04F9E00E25E37 /* ItemStore.swift in Sources */,
 				CE8D051A27D04B3B00E25E37 /* SceneDelegate.swift in Sources */,
+				CE414E1A27DBF51B00C4ABF4 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

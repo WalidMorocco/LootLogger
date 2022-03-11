@@ -23,6 +23,12 @@ class ItemsViewController: UITableViewController{
         cell.nameLabel.text = item.name
         cell.serialNumberLabel.text = item.serialNumber
         cell.valueLabel.text = "$\(item.valueInDollars)"
+        
+        if item.valueInDollars >= 50{
+            cell.valueLabel.textColor = UIColor.red
+        } else{
+            cell.valueLabel.textColor = UIColor.green
+        }
 
         return cell
     }
@@ -45,9 +51,16 @@ class ItemsViewController: UITableViewController{
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if itemStore.allItems.count <= 0{
+            return "No Items"
+        }else{
+            return ""
+        }
+
+    }
     
-    
-    @IBAction func addNewItem(_ sender: UIButton){
+    @IBAction func addNewItem(_ sender: UIBarButtonItem){
         // Create new item and add it to the store
         let newItem = itemStore.createItem()
         
@@ -61,27 +74,38 @@ class ItemsViewController: UITableViewController{
         
     }
     
-    @IBAction func toggleEditingMode(_ sender: UIButton){
-        //If you are in editing mode
-        if isEditing{
-            // Change text of button to inform user of state
-            sender.setTitle("Edit", for: .normal)
-            
-            // Turn of editing mode
-            setEditing(false, animated: true)
-        } else{
-            // Change text of button to inform user of state
-            sender.setTitle("Edit", for: .normal)
-            
-            // Enter editing mode
-            setEditing(true, animated: true)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //If the triggered segue is the "showItem" segue
+        switch segue.identifier{
+        case "showItem":
+            //Figure out which row was chosen
+            if let row = tableView.indexPathForSelectedRow?.row{
+                // Get the item associated with the row
+                let item = itemStore.allItems[row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.item = item
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
 }

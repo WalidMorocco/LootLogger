@@ -39,6 +39,7 @@ class ItemStore {
         // Insert item in array at new location
         allItems.insert(movedItem, at: toIndex)
     }
+    
 }
 
 
